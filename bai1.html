@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+
+        <div>
+            <p>Gia tri: {{ tanga }}</p>
+            <p>Gia tri: {{ tangb }}</p>
+            <button v-on:click="a++">Tang a</button>
+            <button v-on:click="b++">Tang b</button>
+        </div>
+        <div>
+            <p>{{ diem }}</p>
+        </div>
+        <button @click="changeLink()">click to change link</button>
+        <a v-bind:href="linkVal">link</a>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        //all data into html data text
+        var app = new Vue({
+            el: '#app',
+            data: {
+                name: 'MTP',
+                a: 0,
+                b: 0,
+                diem: 'may 7 diem',
+                linkVal: 'https://google.com',
+            },
+            //thuc hien nhu function nhung no dc coi nhu 1 bien k dc coi nhu la 1 function
+            //computed chay trc method
+            computed: {
+                tanga: function() {
+                console.log('a');
+                return this.a;
+              },
+              tangb: function() {
+                console.log('b'); 
+                return this.b;
+              }
+            },
+            methods: {
+              changeLink: function() {
+                this.linkVal = 'https://www.facebook.com'
+              }
+            },
+            //theo dõi sự thay đổi của biên dể làm 1 hành động nào đó
+            watch: {
+                 diem: function(newValue) {
+                    alert('da dc thay doi');
+                 }
+            }
+        })
+
+        app.diem = "m dc 9 diem";
+    </script>
+</body>
+</html>

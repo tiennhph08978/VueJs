@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="object">
+        <p v-html="testHTML"></p>
+        <p v-once>{{ detail }} - {{ showPost() }}</p>
+        <a v-bind:href="link">fb</a>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        //all data into html data text
+        new Vue({
+            el: '#object',
+            data: {
+                name: 'Hello tien',
+                age: 20,
+                detail: 'ban dep trai',
+                link: 'https://www.facebook.com/huutien0',
+                testHTML: '<a href="https:......aaaaa">Get pass</a>'
+            },
+            methods: {
+                sayHello: function() {
+                    document.write('aaaaa');
+                },
+                showPost: function() {
+                    this.detail = 'tien oi dz qua hihi';
+                    return this.detail;
+                }
+            }
+        })
+        //https://www.youtube.com/watch?v=hD9ahydjjpc&ab_channel=toantran
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="object">
+        <h1>bam nut de tang value</h1>
+        <button v-on:click="tangValue">Tang</button>
+        <button v-on:click="dem++">DEM</button>
+        <p>Value: {{ dem }}</p>
+        <p>Value: {{ dem > 20 ? 'ban da hon 20' : 'ban test ok' }}</p>
+        <p v-on:mousemove="tinhToaDo">toa do chuot: {{ x }} / {{y}}
+            <span v-on:mousemove.stop="">dung Event</span>
+        </p>
+        <div class="">
+            <input type="text" @keyup.enter="banPhim">
+        </div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        //all data into html data text
+        new Vue({
+            el: '#object',
+            data: {
+                name: 'Hello tien',
+                dem: 0,
+                x: 0,
+                y: 0
+            },
+            methods: {
+                tangValue: function() {
+                    this.dem++;
+                },
+                tinhToaDo: function(e) {
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                },
+                // stopChuot: function(e) {
+                //     e.stopPropagation();//dung tat cac cac event
+                // }
+                banPhim: function() {
+                    alert('HEllo Baby')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
